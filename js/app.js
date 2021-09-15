@@ -194,6 +194,37 @@ function mostrarTotal() {
 
 }
 
+// Funcão que mostra o botao de loading
+function mostrarLoading() {
+    const div_load = document.querySelector("#load")
+
+    const css_root = document.querySelector(":root")
+    const rt = getComputedStyle(css_root)
+
+    div_load.innerHTML = '<span class="load_gif"></span> Realizando Sorteio'
+    div_load.style.display = 'flex'
+    div_load.style.color = rt.getPropertyValue('--cor02')
+
+    return div_load
+}
+
+function preparaSorteio(e) {
+    let tot = 0;
+    const load = mostrarLoading()
+
+    let intervalo = setInterval(function () {
+        if (tot < 50) {
+            sorteio(e)
+        } else {
+            clearInterval(intervalo)
+            load.innerHTML = `<i class="fas fa-check-circle"></i> Sorteado`
+            load.style.color = 'green'
+        }
+
+        tot++
+    }, 200)
+}
+
 form_add.onsubmit = e => {
     e.preventDefault()
 
@@ -230,7 +261,8 @@ form_add.onsubmit = e => {
 
         
 
-        document.querySelector("#btn_sortear").addEventListener("click",sorteio, false)
+        // Executa o sorteio
+        document.querySelector("#btn_sortear").addEventListener("click", preparaSorteio, false)
     }
 
     

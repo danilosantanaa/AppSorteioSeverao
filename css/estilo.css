@@ -204,6 +204,24 @@ div.jogador div {
     background-color: var(--cor02);
 }
 
+div#load {
+    display: none;
+    justify-content: left;
+    align-items: center;
+    color: var(--cor02);
+    font-weight: bolder;
+}
+
+
+.load_gif {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../img/loading.gif') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 5px;
+}
+
 /*-----------------------*/
 
 footer {
