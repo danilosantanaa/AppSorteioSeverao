@@ -141,23 +141,29 @@ section#gerar_lista div#quantidade {
 div#conteiner-list {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 0px;
+    margin: auto;
 }
 
 div.opcao > h3 {
+    --border-tamanho: 8px;
     color: white;
     background-color: var(--cor03);
     padding: 10px;
     text-align: center;
+    border-top-left-radius: var(--border-tamanho);
+    border-top-right-radius: var(--border-tamanho);
 }
 
 section#list div.opcao {
     display: block;
-
-    border: 1px solid var(--cor02);
+    border: 1px solid var(--cor03);
     width: 300px;
     margin: 5px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 div.jogador div {
@@ -205,3 +211,13 @@ footer {
     text-align: center;
     color: white;
 }
+
+@media only screen and (max-width: 960px){
+    div#conteiner-list  {
+        justify-content: center;
+    }
+
+    section#list div.opcao {
+        width: 100%;
+    }
+} 
